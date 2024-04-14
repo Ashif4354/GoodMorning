@@ -12,8 +12,10 @@ class Discord:
         }
 
     def send_embed(self, data):
-        response = post(self.discord_url, headers=self.headers, json=data)
-        return response
+        try:
+            post(self.discord_url, headers=self.headers, json=data, timeout=.5)
+        except:
+            pass
     
     def notify_dev(self, data):
         json_data = {
@@ -26,7 +28,10 @@ class Discord:
             ]
         }
 
-        response = self.send_embed(json_data)
+        try:
+            self.send_embed(json_data)
+        except:
+            pass
 
     def log_sent_message(self, name, message, caption, count):
         json_data = {
@@ -39,4 +44,7 @@ class Discord:
             ]
         }
 
-        response = self.send_embed(json_data)
+        try:
+            self.send_embed(json_data)
+        except:
+            pass
