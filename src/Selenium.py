@@ -36,7 +36,7 @@ class Selenium(Discord, Logger):
         print('Started typing', text)
         element = self.browser.find_element(By.XPATH, xpath)
         element.send_keys(text)
-        self.press_enter(element)
+        # self.press_enter(element)
 
     def press_enter(self, element):
         element.send_keys(Keys.ENTER)

@@ -2,6 +2,7 @@ from .Selenium import Selenium
 from .CopyImage import copy_to_clipboard
 from .Discord import Discord
 from time import sleep
+from selenium.webdriver.common.keys import Keys
 
 
 class WhatsApp(Selenium):
@@ -22,6 +23,7 @@ class WhatsApp(Selenium):
         text_box_xpath = '//div[@title="Search input textbox"]'
         self.clear_text_box(text_box_xpath)
         self.type(text_box_xpath, name)
+        self.browser_actions.send_keys(Keys.ENTER).perform()
 
     def type_message(self, message):
         text_box_xpath = '//div[@title="Type a message"]'
@@ -31,7 +33,9 @@ class WhatsApp(Selenium):
         self.find_chat(name)
         
         for i in range(count):
-            self.type_message(message + caption)
+            self.type_message(message + ' ' + caption)
+            self.browser_actions.send_keys(Keys.ENTER).perform()
+            
             self.log_sent_message(name, message, caption, count)
             sleep(1)
 
@@ -45,7 +49,9 @@ class WhatsApp(Selenium):
             self.paste()  
             sleep(0.5)          
             self.type_message(caption)
+            self.browser_actions.send_keys(Keys.ENTER).perform()
             self.log_sent_message(name, image_path, caption, count)
+
             sleep(1)
 
 if __name__ == '__main__':
