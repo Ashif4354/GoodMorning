@@ -1,4 +1,3 @@
 ﻿Name,Message Type (ValidInput=(text or image)),Message/ImagepathInPC,Caption (if media present),Count,Time
-Ashif,Text,hi,hehe,1,18:00:00
 Ashif,image,C:\Users\ashif\Desktop\Gold.jpg,this is gold,2,18:00:05
 Ashif,text,gold sent,2000,2,18:00:10
