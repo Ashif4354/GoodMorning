@@ -1,5 +1,6 @@
 from .Selenium import Selenium
 from .CopyImage import copy_to_clipboard
+from .Discord import Discord
 from time import sleep
 
 
@@ -31,6 +32,7 @@ class WhatsApp(Selenium):
         
         for i in range(count):
             self.type_message(message + caption)
+            self.log_sent_message(name, message, caption, count)
             sleep(.5)
 
     def send_image_to_chat(self, name, image_path, caption, count):
@@ -42,6 +44,7 @@ class WhatsApp(Selenium):
             sleep(.5)
             self.type_message(caption)
             self.print_logs('Image sent')
+            self.log_sent_message(name, image_path, caption, count)
             sleep(.5)
 
 if __name__ == '__main__':

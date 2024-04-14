@@ -6,9 +6,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 from .Logger import Logger
+from .Discord import Discord
 
-class Selenium(Logger):
+class Selenium(Discord, Logger):
     def __init__(self):
+        super().__init__()
         options = EdgeOptions()
         options.add_argument(r'user-data-dir=C:\Users\ashif\AppData\Local\Microsoft\Edge\User Data')
         self.open_browser(options)
