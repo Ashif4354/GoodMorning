@@ -22,17 +22,17 @@ class Selenium(Discord, Logger):
         self.browser.maximize_window()
 
     def find_and_click_element(self, xpath):
-        WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        WebDriverWait(self.browser, 20).until(EC.presence_of_element_located((By.XPATH, xpath)))
         element = self.browser.find_element(By.XPATH, xpath)
         element.click()
 
     def clear_text_box(self, xpath):
-        WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        WebDriverWait(self.browser, 20).until(EC.presence_of_element_located((By.XPATH, xpath)))
         element = self.browser.find_element(By.XPATH, xpath)
         element.clear()
 
     def type(self, xpath, text):
-        WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        WebDriverWait(self.browser, 20).until(EC.presence_of_element_located((By.XPATH, xpath)))
         print('Started typing', text)
         element = self.browser.find_element(By.XPATH, xpath)
         element.send_keys(text)

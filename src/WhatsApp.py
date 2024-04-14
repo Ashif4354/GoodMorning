@@ -33,7 +33,7 @@ class WhatsApp(Selenium):
         for i in range(count):
             self.type_message(message + caption)
             self.log_sent_message(name, message, caption, count)
-            sleep(.5)
+            sleep(1)
 
 
     def send_image_to_chat(self, name, image_path, caption, count):
@@ -42,11 +42,11 @@ class WhatsApp(Selenium):
         sleep(.5)
 
         for i in range(count):            
-            self.paste()            
+            self.paste()  
+            sleep(0.5)          
             self.type_message(caption)
-            self.print_logs('Image sent')
             self.log_sent_message(name, image_path, caption, count)
-            sleep(.5)
+            sleep(1)
 
 if __name__ == '__main__':
     w = WhatsApp()
