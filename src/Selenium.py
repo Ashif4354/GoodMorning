@@ -7,12 +7,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 from .Logger import Logger
 from .Discord import Discord
+from os import getenv
 
 class Selenium(Discord, Logger):
     def __init__(self):
         super().__init__()
         options = EdgeOptions()
-        options.add_argument(r'user-data-dir=C:\Users\ashif\AppData\Local\Microsoft\Edge\User Data')
+        options.add_argument(r'user-data-dir=C:\Users\{}\AppData\Local\Microsoft\Edge\User Data'.format(getenv('USERNAME')))
         self.open_browser(options)
         self.browser_actions = ActionChains(self.browser)
         
