@@ -3,7 +3,7 @@ from src.WhatsApp import WhatsApp
 from src.Discord import Discord
 from csv import reader
 from datetime import datetime
-from os import getenv, system
+from os import system
 from src.Time import wait
 
 

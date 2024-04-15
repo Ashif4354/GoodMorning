@@ -4,7 +4,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-from time import sleep
 from .Logger import Logger
 from .Discord import Discord
 from os import getenv
@@ -36,10 +35,9 @@ class Selenium(Discord, Logger):
         print('Started typing', text)
         element = self.browser.find_element(By.XPATH, xpath)
         element.send_keys(text)
-        # self.press_enter(element)
 
-    def press_enter(self, element):
-        element.send_keys(Keys.ENTER)
+    def press_enter(self):
+        self.browser_actions.send_keys(Keys.ENTER).perform()
     
     def paste(self):
         self.browser_actions.key_down(Keys.CONTROL).send_keys('v').key_up(Keys.CONTROL).perform()

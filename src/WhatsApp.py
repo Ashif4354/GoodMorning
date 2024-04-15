@@ -23,7 +23,7 @@ class WhatsApp(Selenium):
         text_box_xpath = '//div[@title="Search input textbox"]'
         self.clear_text_box(text_box_xpath)
         self.type(text_box_xpath, name)
-        self.browser_actions.send_keys(Keys.ENTER).perform()
+        self.press_enter() 
 
     def type_message(self, message):
         text_box_xpath = '//div[@title="Type a message"]'
@@ -34,7 +34,7 @@ class WhatsApp(Selenium):
         
         for i in range(count):
             self.type_message(message + ' ' + caption)
-            self.browser_actions.send_keys(Keys.ENTER).perform()
+            self.press_enter() 
             
             self.log_sent_message(name, message, caption, count)
             sleep(1)
@@ -45,11 +45,13 @@ class WhatsApp(Selenium):
         copy_to_clipboard(image_path)
         sleep(.5)
 
-        for i in range(count):            
+        for i in range(count):   
+            self.type_message(caption)         
             self.paste()  
-            sleep(0.5)          
-            self.type_message(caption)
-            self.browser_actions.send_keys(Keys.ENTER).perform()
+            sleep(0.5)     
+            self.press_enter()     
+            
+            
             self.log_sent_message(name, image_path, caption, count)
 
             sleep(1)
