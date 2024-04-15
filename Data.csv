@@ -1,3 +1,3 @@
-﻿Name,Message Type (ValidInput=(text or image)),Message/ImagePathInPC,Caption (if media present),Count,Time (HH:MM:SS)
-Ashif,text,Hola, Amigos,3,08:00:00
-Ashif,image,C:\Users\ashif\Desktop\Gold.jpg,Beautiful sunset,2,08:05:00
+﻿Name,Message Type (ValidInput=(text or image)),Message/ImagePathInPC,Caption (if media present),Count
+Ashif,text,Hola, Amigos,3
+Ashif,image,C:\Users\ashif\Desktop\Gold.jpg,Beautiful sunset,2

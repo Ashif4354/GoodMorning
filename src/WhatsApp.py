@@ -24,6 +24,7 @@ class WhatsApp(Selenium):
         self.clear_text_box(text_box_xpath)
         self.type(text_box_xpath, name)
         self.press_enter() 
+        sleep(.5)
 
     def type_message(self, message):
         text_box_xpath = '//div[@title="Type a message"]'
